@@ -10,6 +10,7 @@ export default defineConfig({
     vue(),
     vueDevTools(),
   ],
+  base: '/Sadowscy/',   // <-- to jest kluczowe dla GitHub Pages
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
