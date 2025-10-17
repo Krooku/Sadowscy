@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --color-primary: #1e88e5;      /* niebieski - główny kolor */
+  --color-secondary: #f14f32;    /* ciemniejszy odcień */
+  --color-accent: #ffca28;       /* żółty akcent */
+  --color-bg: #f5f7fa;           /* tło */
+  --color-text: #272727;         /* tekst */
+  --color-light-text: #555555;   /* jaśniejszy tekst */
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: var(--color-text);
+  letter-spacing: 0.5px;
+}
