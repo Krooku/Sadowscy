@@ -8,7 +8,10 @@
         <div class="overlay"></div>
 
         <div class="content" ref="content">
-            <h1 class="logo">Sadowscy</h1>
+            <h1 class="logo">
+              <span>S</span><span>a</span><span>d</span><span>o</span><span>w</span><span>s</span><span>c</span><span>y</span>
+            </h1>
+
             <p class="tag">AUTO - CZĘŚCI - SZYBY - NAPRAWA</p>
 
             <h2>Naprawa szyb samochodowych</h2>
@@ -52,7 +55,12 @@ export default {
       gsap.fromTo(bg.value, { scale: 1.06 }, { scale: 1, duration: 8, ease: 'power1.out' })
 
       // Animacja zawartości
-      const children = Array.from(content.value.querySelectorAll('.logo, .tag, h2, .desc, .cta'))
+      const children = Array.from(content.value.querySelectorAll('.tag, h2, .desc, .cta'))
+
+      const logo = Array.from(content.value.querySelector('.logo').children).slice(1);
+
+      const firstLetter = content.value.querySelector('.logo span:first-child');
+
       
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -74,6 +82,17 @@ export default {
         { y: 0, autoAlpha: 1, stagger: 0.12, duration: 0.5, ease: 'power2.out' },
         '-=0.35'
       )
+
+      // Stagger logo litery
+      tl.fromTo(logo,
+        { x: 180, autoAlpha: 0 },
+        { x: 0, autoAlpha: 1, stagger: 0.15, duration: 1.4, ease: 'power2.out'
+      }, '-=0.35')
+
+      tl.fromTo(firstLetter,
+        { x: -180, autoAlpha: 0 },
+        { x: 0, autoAlpha: 1, duration: 1.4, ease: 'power2.out'
+      }, '<0.5')
     })
 
     onBeforeUnmount(() => {
@@ -141,6 +160,12 @@ export default {
     margin: 0;
     letter-spacing: 2px;
     font-weight: 700;
+}
+.logo span {
+  display: inline-block;
+}
+.logo span:first-child {
+    color: var(--color-secondary);
 }
 .tag {
     margin: 6px 0 18px;
